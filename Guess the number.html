@@ -1,0 +1,61 @@
+<style>
+    .Container{
+        width: 30%;
+        height:30%;
+        position: absolute;
+        top:30%;
+        left: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid rgb(30, 168, 30);
+        background-color: rgb(174, 248, 174);
+    }
+    #h1{
+        position: absolute;
+        top: 20px;
+        left: 37%;
+    }
+    #usernum{
+        padding: 7px;
+    }
+    #checkbtn{
+        width: 80px;
+        padding: 6px;
+        border-radius: 10px;
+        border: none;
+        background-color: rgb(99, 249, 79);
+        border: 1px solid rgb(48, 198, 48);
+        cursor: pointer;
+    }
+    #total{
+        position: absolute;
+        top:210px;
+    }
+</style>
+<h1 id="h1">Guess the number from 1 to 10!</h1><br><br>
+<div class="Container">
+    <h2>Enter a number</h2>
+    <input id = "usernum"><br>
+    <button onclick = "check()" id="checkbtn">Check</button>
+    <p>Total score: </p>
+    <p id = "total">10</p>
+</div>
+<script>
+    function check(){
+        var ran = Math.floor((Math.random()*10)+1);
+        console.log(ran);
+        if(ran != Number(document.getElementById("usernum").value)){
+
+            var result = document.getElementById("total").textContent; 
+            var total = Number(result)-1;
+            document.getElementById("total").innerHTML=total;
+        }
+        if(ran == Number(document.getElementById("usernum").value)){
+            alert("You won!")
+        }
+    }
+</script>
