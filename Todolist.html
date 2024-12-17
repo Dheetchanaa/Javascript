@@ -1,0 +1,83 @@
+<style>
+    #div{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 40%;
+        height:50%;
+        top: 20%;
+        left:30%;
+        background-color: rgb(87, 205, 241);
+    }
+    #h1{
+        position: absolute;
+        top:30px;
+        left: 45%;
+    }
+    #input{
+        padding: 10px;
+    }
+    #btn{
+        padding: 10px;
+        width: 70px;
+        border-radius: 20px;
+        border:1px solid rgb(19, 117, 128);
+        background-color: rgb(62, 178, 213);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #table-res{
+        width: 250px;
+        border: 1px solid rgb(37, 180, 149);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: white;
+        color: rgb(58, 51, 51);
+    }
+    #table-res td{
+        text-align: center;
+    }
+    #del{
+        width: 70px;
+        border-radius: 20px;
+        border:1px solid rgb(19, 117, 128);
+        background-color: rgb(62, 178, 213);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<h1 id="h1">To-do list</h1>
+    <div id="div">
+        <div>
+            <input id="input" placeholder="Enter your todo..">
+            <button onclick="add()" id="btn">Add</button>
+        </div>
+        <div>
+            <table id = "table-res">
+                <tr>
+                    <th>ITEM</th>
+                    <th>Action</th>
+                </tr>
+            </table>
+            
+        </div>
+        
+    </div>
+<script>
+    function add(){
+        var text = document.querySelector("input").value
+        var table = document.querySelector("table");
+        var tr = table.insertRow(-1);
+        var cell1 = tr.insertCell(0);
+        var cell2 = tr.insertCell(1);
+        cell1.innerText=text;
+        cell2.innerHTML="<button onclick='del(event)' id='del'>Delete</button>"
+    }
+    function del(event){
+        event.target.parentElement.parentElement.remove();
+    }
+</script>
